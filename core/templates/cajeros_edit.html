@@ -1,0 +1,48 @@
+<div class="modal-dialog modal-lg">
+	<div class="modal-content">		
+		<form method="POST" role="form" class="form-inline" action="{% url 'core:cajeros_editar' obj.pk %}">
+		{% csrf_token %}
+			<div class="col-x1-12 col-md-12 mb-12">	
+				<div class="modal-header az-content-label bd-0 tx-white bg-indigo">
+				Editar Cajero</div>
+				<div class="modal-body bg-gray-200 bd-0">
+					<div class="row">
+						<div class="col-5">
+							<div class="input-group">
+								{{ form.nombre_cajero}}
+
+							</div>
+						</div>
+					<div class="row">
+						<div class="col-5">
+							<div class="input-group">
+								{{ form.clave_cajero}}
+
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="input-group">
+								{{ form.estado_cajero}}
+
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="input-group">
+								{{ form.id_pos_pc}}
+
+							</div>
+						</div>
+					</div>
+				</div>
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col">
+								<button class="btn btn-az-primary" type="submit">Editar</button>
+								<button type="button" class="btn btn-outline-light" onclick="return cerrar_modal()">Cancelar</button>
+							</div>
+						</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

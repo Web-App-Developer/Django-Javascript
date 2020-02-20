@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold az-content-label tx-indigo">Listado de Cajeros</h6>
+                  <div class="col-md-6">
+                  <a id="btnCreate" onclick="return abrir_modal('{% url 'core:cajeros_crear' %}')"><i class="fa fa-plus-circle fa-3x" style="float:right; margin-right:20px;"></i></a>
+                </div>
+                </div>
+                    
+                  
+                <!-- Card Body -->
+                <div class="card-body">
+                  {%if not obj%}
+                   <div class="alert alert-info">No Hay Cajeros Registrados</div>
+                  {% else %}
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <th>ID</th>
+                      <th>NOMBRE CAJERO</th>
+                      <th>CODIGO</th>
+                      <th>ESTADO</th>
+                      <th>TERMINAL ASIGNADA</th>
+                      <th class="all">ACCIONES</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                      {%for item in obj %}
+                      <td>{{ item.id_cajero }}</td>
+                      <td>{{item.nombre_cajero}}</td>
+                      <td>{{ item.clave_cajero}}</td>
+                      <td>{{item.estado_cajero}}</td>
+                      <td>{{item.id_pos_pc.codigo_pos_pc}}</td>
+                      <td>
+                        <a class="btn btn-warning btn-circle" onclick="return abrir_modal('{% url 'core:cajeros_editar' item.id_cajero %}')">
+                          <i class="far fa-edit"></i></a>
+                        <a class="btn  btn-danger btn-circle remove" onclick="return abrir_modal('{% url 'core:cajeros_eliminar' item.id_cajero %}')"><i class="far fa-trash-alt"></i></a>
+                      </td>
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+                  {%endif%}
+                </div>
+              </div>
+{%endblock%}
+
+

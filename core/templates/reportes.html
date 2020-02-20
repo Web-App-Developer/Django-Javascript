@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="az-content-body">
+
+        <form id="reportes_form" method="POST" action="ajax_reportes">
+            {% csrf_token %}
+            <div id="div_reportes_form">
+                <div class="card card-dashboard-seven">
+                    <div class="card-header">
+                        <div class="row row-sm">
+                            <div class="col-6 col-md-4 col-xl">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <select id="localidad" name="localidad" class="form-control"
+                                                onChange="myFunction()">
+                                            <option value="">#Selecclone la Localidad</option>
+                                            {% for item in obj.1 %}
+                                                <option value="{{ item.localidad }}"{% if item.localidad == localidad %}
+                                                        selected {% endif %}>{{ item.localidad }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- media -->
+                            </div>
+                            <div class="col-6 col-md-4 col-xl">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <select id="nombre_pv" name="nombre_pv" class="form-control"
+                                                onChange="myFunction()">
+                                            <option value="">#Todos los PDVs</option>
+                                            {% for item in obj.2 %}
+                                                <option value="{{ item.nombre_pv }}"{% if item.nombre_pv == nombre_pv %}
+                                                        selected {% endif %}>{{ item.nombre_pv }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- media -->
+                            </div>
+                            <div class="col-6 col-md-4 col-xl mg-t-15 mg-xl-t-0">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <select id="selecclonar" name="selecclonar" class="form-control"
+                                                onChange="myFunction()">
+                                            <option value="">Selecclonar</option>
+                                            <option value="hoy" {% if selecclonar == 'hoy' %} selected {% endif %}>Hoy
+                                            </option>
+                                            <option value="seleccolnar de" {% if selecclonar == 'seleccolnar de' %}
+                                                    selected {% endif %}>Selecclonar de
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- media -->
+                            </div>
+                            <div class="col-6 col-md-4 col-xl mg-t-15 mg-xl-t-0">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <input id="inicial" name="inicial" class="form-control" placeholder="Inicial"
+                                               value="{{ inicial }}" onChange="myFunction()">
+                                    </div>
+                                </div>
+                                <!-- media -->
+                            </div>
+                            <div class="col-6 col-md-4 col-xl mg-t-15 mg-xl-t-0">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <input id="final" name="final" class="form-control" placeholder="Final"
+                                               value="{{ final }}" onChange="myFunction()"/>
+                                    </div>
+                                </div>
+                                <!-- media -->
+                            </div>
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <div class="card-body">
+                        <div class="row row-sm">
+                            <div class="col-6 col-md-4 col-xl">
+                                <label class="az-content-label">PDV(s)</label>
+                                <h2><span>{{ pdvs }}</span></h2>
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-md-4 col-xl">
+                                <label class="az-content-label">TICKET(S)</label>
+                                <h2><span>{{ tickets }}</span></h2>
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-md-4 col-xl mg-t-15 mg-xl-t-0">
+                                <label class="az-content-label">Venta</label>
+                                <h2><span>{{ ventas }}</span></h2>
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-md-4 col-xl mg-t-15 mg-xl-t-0">
+                                <label class="az-content-label">Premios</label>
+                                <h2><span>{{ premios }}</span></h2>
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-md-4 col-xl mg-t-15 mg-xl-t-0">
+                                <label class="az-content-label">Saldo</label>
+                                <h2><span>{{ saldos }}</span></h2>
+                            </div>
+                            <!-- col -->
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!-- card-body -->
+                </div>
+                <div class="card-body">{{ localidad }}{{ nombre_pv }}
+                    {% if not obj %}
+                        <div class="alert alert-info">No Hay Cajeros Registrados</div>
+                    {% endif %}
+                    <table class="table table-striped table-hover main-table">
+                        <thead>
+                        <th>LOCALIDAD</th>
+                        <th>PUNTO DE VENTA</th>
+                        <th>TICKETS</th>
+                        <th>VENTA</th>
+                        <th>PREMIOS</th>
+                        <th>SALDO</th>
+                        <th>PORCENTAJE</th>
+
+                        </thead>
+                        <tbody>
+
+                        {% for item in obj.0 %}
+                            <tr>
+                                <td>{{ item.id_cajero__id_pos_pc__id_pv__localidad }}</td>
+                                <td>{{ item.id_cajero__id_pos_pc__id_pv__nombre_pv }}</td>
+                                <td>{{ item.tickets }}</td>
+                                <td>{{ item.ventas }}</td>
+                                <td>232</td>
+                                <td>2132</td>
+                                <td>23</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+{% block customScript %}
+    <script>
+        function myFunction() {
+            var x1 = document.getElementById("localidad").value;
+            var x2 = document.getElementById("nombre_pv").value;
+            var x3 = document.getElementById("selecclonar").value;
+            var x4 = document.getElementById("inicial").value;
+            var x5 = document.getElementById("final").value;
+            data = {};
+            data["localidad"] = x1;
+            data["nombre_pv"] = x2;
+            data["selecclonar"] = x3;
+            data["inicial"] = x4;
+            data["final"] = x5;
+            console.log(data);
+            {#data["phone_number"] = $(".phno").val();#}
+            $.ajax({
+                type: 'post',
+                data: JSON.stringify(data),
+                {#url: 'ajax_reportes',#}
+                url: 'reportes',
+                success: function (result) {
+                    console.log(result);
+                    if (result.success) {
+                        window.location.href = "/reportes"
+                    } else {
+                        alertify.set('notifier', 'position', 'top-right');
+                        alertify.error(result.message);
+                    }
+                }
+            });
+        }
+
+    </script>
+{% endblock %}

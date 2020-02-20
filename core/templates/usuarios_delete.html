@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+<form method="post">
+	{% csrf_token %}
+	<h3>Desea eliminar el registro de {{object.nombre_usuarios}}?</h3>
+	<button class="btn btn-danger"type="submit">Eliminar</button>
+	<a class="btn btn-default" href="{% url 'usuarios_list' %}">Cancelar</a>
+
+</form>
+
+
+{% endblock %}
+
+<script type="text/javascript">
+    $(".remove").click(function(){
+        var id = $(this).parents("tr").attr("id");
+
+
+        if(confirm('Estas seguro de Borrar Este Registro?'))
+        {
+            $.ajax({
+               url: 'usuarios_delete.html',
+               type: 'GET',
+               data: {id: id},
+               error: function() {
+                  alert('Algo Salio Mal');
+               },
+               success: function(data) {
+                    $("#"+id).remove();
+                    alert("Registro Borrado");  
+               }
+            });
+        }
+    });
+
+
+</script>

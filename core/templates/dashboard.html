@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {%load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Panel Administracion DobleMachuka</title>
+
+    <!-- vendor css -->
+    <link href="{%static 'core/lib/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{%static 'core/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+    <link href="{% static 'core/lib/typicons.font/typicons.css' %}" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="{%static 'core/css/azia.css'%}">
+
+</head>
+
+
+<body class="az-body az-body-sidebar">
+
+    <div class="az-sidebar">
+        <div class="az-sidebar-header">
+            <a href="/" class="az-logo">doble<span>machuka</span></a>
+        </div>
+        <!-- az-sidebar-header -->
+        <div class="az-sidebar-loggedin">
+            <div class="az-img-user online"><img src="https://via.placeholder.com/500x500" alt=""></div>
+            <div class="media-body">
+                <h6>{{user.first_name}} {{user.last_name}}</h6>
+                <span>Administrador</span> {{perms.all}}
+            </div>
+            <!-- media-body -->
+        </div>
+        <!-- az-sidebar-loggedin -->
+        <div class="az-sidebar-body">
+            <ul class="nav">
+                <li class="nav-label">Administracion</li>
+                <li class="nav-item">
+                    <a href="" class="nav-link with-sub"><i class="typcn typcn-device-desktop"></i>Punto de Ventas</a>
+                    <nav class="nav-sub">
+                        <a href="/puntoventa_crear" class="nav-sub-link">Registrar Punto de venta</a>
+                        <a href="/allpv" class="nav-sub-link ">Administracion de Punto de venta</a>
+
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link with-sub"><i class="typcn typcn-user"></i>Cajeros</a>
+                    <nav class="nav-sub">
+                        <a href="/cajeros_crear" class="nav-sub-link">Registrar Cajero</a>
+                        <a href="/cajerosall" class="nav-sub-link">Administracion de Punto de venta</a>
+
+
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link with-sub"><i class="typcn typcn-device-tablet"></i>Terminales</a>
+                    <nav class="nav-sub">
+                        <a href="/terminal_crear" class="nav-sub-link">Registrar Terminal</a>
+                        <a href="/terminalesall" class="nav-sub-link">Todos Terminales</a>
+                    </nav>
+                </li>
+
+                <li class="nav-item">
+                    <a href="" class="nav-link with-sub"><i class="typcn typcn-group"></i>Usuarios &amp; Permisos</a>
+                    <nav class="nav-sub">
+                        <a href="app-mail.html" class="nav-sub-link">Registrar Usuarios</a>
+                        <a href="app-calendar.html" class="nav-sub-link">Administracion Usuarios</a>
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link with-sub"><i class="typcn typcn-chart-bar"></i>Reportes</a>
+                    <nav class="nav-sub">
+                        <a href="app-mail.html" class="nav-sub-link">Reporte por Fecha</a>
+                        <a href="app-chat.html" class="nav-sub-link">Reporte por Punto de venta</a>
+                        <a href="app-calendar.html" class="nav-sub-link">Reporte por Cajeros</a>
+
+                    </nav>
+                </li>
+                <!-- nav-item -->
+            </ul>
+            <!-- nav -->
+        </div>
+        <!-- az-sidebar-body -->
+    </div>
+    <!-- az-sidebar -->
+    <div class="az-content az-content-dashboard-two">
+        <div class="az-header">
+            <div class="container-fluid">
+                <div class="az-header-left">
+                    <a href="" id="azSidebarToggle" class="az-header-menu-icon"><span></span></a>
+                </div>
+                <!-- az-header-left -->
+                <div class="az-header-center">
+                    <input type="search" class="form-control" placeholder="Search for anything...">
+                    <button class="btn"><i class="fas fa-search"></i></button>
+                </div>
+                <!-- az-header-center -->
+                <div class="az-header-right">
+                    <div class="az-header-message">
+                        <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
+                    </div>
+                    <!-- az-header-message -->
+                    <div class="dropdown az-header-notification">
+                        <a href="" class="new"><i class="typcn typcn-bell"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="az-dropdown-header mg-b-20 d-sm-none">
+                                <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                            </div>
+                            <h6 class="az-notification-title">Notifications</h6>
+                            <p class="az-notification-text">You have 2 unread notification</p>
+                            <div class="az-notification-list">
+                                <div class="media new">
+                                    <div class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
+                                        <span>Mar 15 12:32pm</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                                <div class="media new">
+                                    <div class="az-img-user online"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p><strong>Joyce Chua</strong> just created a new blog post</p>
+                                        <span>Mar 13 04:16am</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                                <div class="media">
+                                    <div class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p><strong>Althea Cabardo</strong> just created a new blog post</p>
+                                        <span>Mar 13 02:56am</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                                <div class="media">
+                                    <div class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p><strong>Adrian Monino</strong> added new comment on your photo</p>
+                                        <span>Mar 12 10:40pm</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                            </div>
+                            <!-- az-notification-list -->
+                            <div class="dropdown-footer"><a href="">View All Notifications</a></div>
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                    <!-- az-header-notification -->
+                    <div class="dropdown az-profile-menu">
+                        <a href="" class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></a>
+                        <div class="dropdown-menu">
+                            <div class="az-dropdown-header d-sm-none">
+                                <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                            </div>
+                            <div class="az-header-profile">
+                                <div class="az-img-user">
+                                    <img src="https://via.placeholder.com/500x500" alt="">
+                                </div>
+                                <!-- az-img-user -->
+                                <h6>{{user.first_name}} {{user.last_name}}</h6>
+                                <span>Administrador</span>
+                            </div>
+                            <!-- az-header-profile -->
+
+                            <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i>Mi Perfil</a>
+                            <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i>Editar Perfil</a>
+                            <a href="" class="dropdown-item"><i class="typcn typcn-time"></i>Log</a>
+                            <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Configuracion Cuenta</a>
+                            <a href="{% url 'core:logout'%}" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Salir</a>
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                </div>
+                <!-- az-header-right -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- az-header -->
+
+        <div class="az-content-header d-block d-md-flex">
+            <div>
+                <!--<h2 class="az-content-title mg-b-5 mg-b-lg-8">Hi, welcome back!</h2> --->
+                <p class="mg-b-0">Panel de Administracion DobleMachuka.</p>
+            </div>
+
+        </div>
+        <!-- az-content-header -->
+        <div class="az-content-body">
+
+
+            <div class="az-content-header d-block d-md-flex">
+                <div>
+
+                </div>
+                <div class="az-dashboard-header-right">
+                    <div>
+
+
+                    </div>
+                    <div>
+                        <label class="tx-13">Terminales (Online)</label>
+                        <h5>431,007</h5>
+                    </div>
+                    <div>
+                        <label class="tx-13">Terminales (Offline)</label>
+                        <h5>932,210</h5>
+                    </div>
+                </div>
+                <!-- az-dashboard-header-right -->
+            </div>
+            <!-- az-content-header -->
+            <div class="az-content-body">
+                <div class="card card-dashboard-seven">
+
+                    <!-- card-header -->
+                    <div class="card-body">
+                        <div class="row row-sm">
+                            <div class="col-6 col-lg-3">
+                                <label class="az-content-label">Total Ventas</label>
+                                <h2><span>$</span>{{obj}}</h2>
+                                <div class="desc up">
+                                    <i class="icon ion-md-stats"></i>
+                                    <span><strong>2.00%</strong> (30 days)</span>
+                                </div>
+                                <!---<span id="compositeline2">5,9,5,6,4,12,18,14,10,15,12,5,8,5,12,5,12,10,16,12</span> --->
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-lg-3">
+                                <label class="az-content-label">Total Ganancia</label>
+                                <h2><span>$</span>129,449</h2>
+                                <div class="desc up">
+                                    <i class="icon ion-md-stats"></i>
+                                    <span><strong>12.09%</strong> (30 days)</span>
+                                </div>
+                                <!--<span id="compositeline">3,2,4,6,12,14,8,7,14,16,12,7,8,4,3,2,2,5,6,7</span> --->
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-lg-3 mg-t-20 mg-lg-t-0">
+                                <label class="az-content-label">Total Comision</label>
+                                <h2><span>$</span>38,098</h2>
+                                <div class="desc down">
+                                    <i class="icon ion-md-stats"></i>
+                                    <span><strong>0.51%</strong> (30 days)</span>
+                                </div>
+                                <!--<span id="compositeline4">5,9,5,6,4,12,18,14,10,15,12,5,8,5,12,5,12,10,16,12</span> --->
+                            </div>
+                            <!-- col -->
+                            <div class="col-6 col-lg-3 mg-t-20 mg-lg-t-0">
+                                <label class="az-content-label">Total Ganancia Neta</label>
+                                <h2><span>$</span>91,351</h2>
+                                <div class="desc up">
+                                    <i class="icon ion-md-stats"></i>
+                                    <span><strong>5.32%</strong> (30 days)</span>
+                                </div>
+                                <!---<span id="compositeline3">5,10,5,20,22,12,15,18,20,15,8,12,22,5,10,12,22,15,16,10</span>--->
+                            </div>
+                            <!-- col -->
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!-- card-body -->
+                </div>
+                <!-- card -->
+
+                <div class="row row-sm mg-b-15 mg-sm-b-20">
+                    <div class="col-lg-6 col-xl-7">
+                        <div class="card card-dashboard-six">
+                            <div class="card-header">
+                                <div>
+                                    <label class="az-content-label">This Year's Total Revenue</label>
+                                    <span class="d-block">Sales Performance for Online and Offline Revenue</span>
+                                </div>
+                                <div class="chart-legend">
+                                    <div><span>Online Revenue</span> <span class="bg-indigo"></span></div>
+                                    <div><span>Offline Revenue</span> <span class="bg-teal"></span></div>
+                                </div>
+                            </div>
+                            <!-- card-header -->
+                            <div id="morrisBar1" class="ht-200 ht-lg-250 wd-100p"></div>
+                        </div>
+                        <!-- card -->
+                    </div>
+                    <!-- col -->
+                    <div class="col-lg-6 col-xl-5 mg-t-20 mg-lg-t-0">
+                        <div class="card card-dashboard-map-one">
+                            <label class="az-content-label">Sales Revenue by Customers in USA</label>
+                            <span class="d-block mg-b-20">Sales Performance of all states in the United States</span>
+                            <div id="vmap2" class="vmap-wrapper"></div>
+                        </div>
+                        <!-- card -->
+                    </div>
+                    <!-- col -->
+                </div>
+                <!-- row -->
+
+                <div class="row row-sm mg-b-20 mg-lg-b-0">
+                    <div class="col-md-6 col-xl-7">
+                        <div class="card card-table-two">
+                            <h6 class="card-title">Your Most Recent Earnings</h6>
+                            <span class="d-block mg-b-20">This is your most recent earnings for today's date.</span>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-dashboard-two">
+                                    <thead>
+                                        <tr>
+                                            <th class="wd-lg-25p">Date</th>
+                                            <th class="wd-lg-25p tx-right">Sales Count</th>
+                                            <th class="wd-lg-25p tx-right">Earnings</th>
+                                            <th class="wd-lg-25p tx-right">Tax Witheld</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>05 Oct 2018</td>
+                                            <td class="tx-right tx-medium tx-inverse">25</td>
+                                            <td class="tx-right tx-medium tx-inverse">$380.50</td>
+                                            <td class="tx-right tx-medium tx-danger">-$23.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>04 Oct 2018</td>
+                                            <td class="tx-right tx-medium tx-inverse">34</td>
+                                            <td class="tx-right tx-medium tx-inverse">$503.20</td>
+                                            <td class="tx-right tx-medium tx-danger">-$13.45</td>
+                                        </tr>
+                                        <tr>
+                                            <td>03 Oct 2018</td>
+                                            <td class="tx-right tx-medium tx-inverse">30</td>
+                                            <td class="tx-right tx-medium tx-inverse">$489.65</td>
+                                            <td class="tx-right tx-medium tx-danger">-$20.98</td>
+                                        </tr>
+                                        <tr>
+                                            <td>02 Oct 2018</td>
+                                            <td class="tx-right tx-medium tx-inverse">27</td>
+                                            <td class="tx-right tx-medium tx-inverse">$421.80</td>
+                                            <td class="tx-right tx-medium tx-danger">-$22.22</td>
+                                        </tr>
+                                        <tr>
+                                            <td>01 Oct 2018</td>
+                                            <td class="tx-right tx-medium tx-inverse">31</td>
+                                            <td class="tx-right tx-medium tx-inverse">$518.60</td>
+                                            <td class="tx-right tx-medium tx-danger">-$23.01</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- table-responsive -->
+                        </div>
+                        <!-- card-dashboard-five -->
+                    </div>
+                    <div class="col-md-6 col-xl-5 mg-t-20 mg-md-t-0">
+                        <div class="card card-dashboard-eight">
+                            <h6 class="card-title">Your Top Countries</h6>
+                            <span class="d-block mg-b-20">Sales performance revenue based by country</span>
+
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <i class="flag-icon flag-icon-us flag-icon-squared"></i>
+                                    <p>United States</p>
+                                    <span>$1,671.10</span>
+                                </div>
+                                <!-- list-group-item -->
+                                <div class="list-group-item">
+                                    <i class="flag-icon flag-icon-nl flag-icon-squared"></i>
+                                    <p>Netherlands</p>
+                                    <span>$1,064.75</span>
+                                </div>
+                                <!-- list-group-item -->
+                                <div class="list-group-item">
+                                    <i class="flag-icon flag-icon-gb flag-icon-squared"></i>
+                                    <p>United Kingdom</p>
+                                    <span>$1,055.98</span>
+                                </div>
+                                <!-- list-group-item -->
+                                <div class="list-group-item">
+                                    <i class="flag-icon flag-icon-ca flag-icon-squared"></i>
+                                    <p>Canada</p>
+                                    <span>$1,045.49</span>
+                                </div>
+                                <!-- list-group-item -->
+                                <div class="list-group-item">
+                                    <i class="flag-icon flag-icon-au flag-icon-squared"></i>
+                                    <p>Australia</p>
+                                    <span>$1,042.00</span>
+                                </div>
+                                <!-- list-group-item -->
+                            </div>
+                            <!-- list-group -->
+                        </div>
+                        <!-- card -->
+                    </div>
+                    <!-- col -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- your content goes here -->
+        </div>
+        <!-- az-content-body -->
+
+        <div class="az-footer">
+            <div class="container-fluid">
+                <span>&copy; Doble Machuka 2020</span>
+                <span>Designed by: Pablo Polanco</span>
+            </div>
+            <!-- container -->
+        </div>
+        <!-- az-footer -->
+    </div>
+    <!-- az-content -->
+
+    <script src="{%static 'core/lib/jquery/jquery.min.js'%}"></script>
+    <script src="{%static 'core/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{%static 'core/lib/ionicons/ionicons.js'%}"></script>
+
+    <script src="{%static 'core/lib/jquery-sparkline/jquery.sparkline.min.js'%}"></script>
+    <script src="{%static 'core/lib/raphael/raphael.min.js'%}"></script>
+    <script src="{%static 'core/lib/morris.js/morris.min.js'%}"></script>
+    <script src="{%static 'core/lib/jqvmap/jquery.vmap.min.js'%}"></script>
+    <script src="{%static 'core/lib/jqvmap/maps/jquery.vmap.usa.js'%}"></script>
+
+    <script src="{%static 'core/js/azia.js'%}"></script>
+    <script>
+        $(function() {
+            'use strict'
+
+            $('.az-sidebar .with-sub').on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().toggleClass('show');
+                $(this).parent().siblings().removeClass('show');
+            })
+
+            $(document).on('click touchstart', function(e) {
+                e.stopPropagation();
+
+                // closing of sidebar menu when clicking outside of it
+                if (!$(e.target).closest('.az-header-menu-icon').length) {
+                    var sidebarTarg = $(e.target).closest('.az-sidebar').length;
+                    if (!sidebarTarg) {
+                        $('body').removeClass('az-sidebar-show');
+                    }
+                }
+            });
+
+
+            $('#azSidebarToggle').on('click', function(e) {
+                e.preventDefault();
+
+                if (window.matchMedia('(min-width: 992px)').matches) {
+                    $('body').toggleClass('az-sidebar-hide');
+                } else {
+                    $('body').toggleClass('az-sidebar-show');
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

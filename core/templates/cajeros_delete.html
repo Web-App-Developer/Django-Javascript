@@ -1,0 +1,61 @@
+<div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<form method="POST" role="form" action="{% url 'core:cajeros_eliminar' obj.pk %}">
+			{% csrf_token %}
+			<div class="modal-header az-content-label bd-0 tx-white bg-indigo">
+				Inactivar Cajero</div>
+			<div class="modal-body">
+				<h3>Desea inactivar el registro de {{obj.nombre_cajero}}?</h3>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col">
+						<button type="button" class="btn btn-danger"id="btninactivar" >Inactivar</button>
+						<button class="btn btn-default" type="button" onclick="return cerrar_modal()">Cancelar</button>
+					</div>
+				</div>
+			</div>
+		</form>	
+	</div>
+</div>	
+
+<script>
+$(document).ready(function(){
+	var token = $('input[name=csrfmiddlewaretoken]').val();
+	$.ajaxSetup({
+		beforeSend: function(xhr, settings){
+			if (!(/^http:.*/.test(settings.url) || /^http:.*/.test(settings.url))){
+				xhr.setRequestHeader("X-CSRFToken", token);
+			}
+		}
+	});
+	$("#btninactivar").click(function(e){
+		e.preventDefault();
+
+		var id = {{ obj.id_cajero}};
+		var template="{% url 'core:cajeros_eliminar' obj.id_cajero %}";
+		var data={"id_cajero":id};
+		data = JSON.stringify(data);
+
+		$.ajax({
+			type: "POST",
+			url: template,
+			data: data,
+			beforeSend: function(xhr,settings){
+				$.ajaxSettings.beforeSend(xhr,settings);
+			},
+			success: function(response){
+				console.log(response);
+				cerrar_modal();
+				alert(response);
+
+			},
+			error: function(jqXHR, textStatus, errorThrow){
+				console.log(textStatus,errorThrow);
+				cerrar_modal();
+			}
+		});
+
+	});
+});
+</script>

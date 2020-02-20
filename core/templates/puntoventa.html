@@ -1,0 +1,45 @@
+<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header az-content-label bd-0 tx-white bg-indigo">
+				Agregar Punto de Venta</div>
+				<div class="modal-body bg-gray-200 bd-0">
+					<form method="POST" role="form" action="{% url 'core:puntoventa_crear' %}" class="create-form">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-4">
+							<div class="input-group">
+								{{ form.nombre_pv}}
+
+							</div>
+						</div>
+					<div class="row">
+						<div class="col-3">
+							<div class="input-group">
+								{{ form.estado_pv}}
+
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="input-group">
+								{{ form.user}}
+
+							</div>
+						</div>
+						<div class="col-4">
+							<div class="input-group">
+								{{ form.localidad}}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="modal-footer">
+				<button class="btn btn-az-primary" type="submit">Agregar</button>
+				<a class="btn btn-outline-light" href="{% url 'core:allpv' %}">Cancelar</a>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+

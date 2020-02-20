@@ -1,0 +1,39 @@
+<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header az-content-label bd-0 tx-white bg-indigo">
+				Editar Terminal</div>
+				<div class="modal-body bg-gray-200 bd-0">
+					<form method="POST" role="form" action="{% url 'core:terminal_editar' obj.pk %}" class="create-form">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-3">
+							<div class="input-group">
+								{{ form.codigo_pos_pc}}
+
+							</div>
+						</div>
+					<div class="row">
+						<div class="col-5">
+							<div class="input-group">
+								{{ form.estado_pos_pc}}
+
+							</div>
+						</div>
+						<div class="col-7">
+							<div class="input-group">
+								{{ form.id_pv}}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="modal-footer">
+				<button class="btn btn-az-primary" type="submit">Editar</button>
+				<a class="btn btn-outline-light" href="{% url 'core:terminalesall' %}">Cancelar</a>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+

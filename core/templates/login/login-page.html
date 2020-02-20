@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    {%load static%}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     
+
+    <title>LOGIN |CREDIT SOLUTIONS</title>
+
+  
+    <link href="{%static 'core/lib/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{%static 'core/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+    <link href="{% static 'core/lib/typicons.font/typicons.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/vendor/jquery-confirm/jquery-confirm.min.css' %}">
+
+
+   
+    <link rel="stylesheet" href="{%static 'core/css/azia.css'%}">
+
+
+  </head>
+  <body class="az-body">
+
+    <div class="az-signin-wrapper">
+      <div class="az-card-signin">
+        <h1 class="az-logo">CREDIT<span>SOLU</span>TIONS</h1>
+        <div class="az-signin-header">
+          <h2>Bienvenido de vuelta!</h2>
+          <h4>Por favor,inicie sesion para continuar!</h4>
+          <small class="text-danger">
+              {% if form.errors%}
+                {% for field in form %}
+                  {% if field.errors %}
+                      {% for error in field.errors %}
+                      {{error|escape }}
+                      {%endfor%}
+
+                  {%endif%}
+
+              {%endfor%}
+            
+
+              {% if form.non_field_errors %}
+               
+                      {% for error in form.non_field_errors %}
+                      {{error|escape }}
+                      {%endfor%}
+
+                  {%endif%}
+
+              
+              {%endif%}
+          </small>
+
+          <form  method="POST">{% csrf_token %}
+            <div class="form-group">
+              <label>Usuario</label>
+              <input type="text" name="username" autofocus required="id_username" class="form-control" placeholder="Usuario">
+            </div><!-- form-group -->
+            <div class="form-group">
+              <label>Contraseña</label>
+              <input type="password"  name="password" required="id_password" class="form-control" placeholder="Contraseña">
+            </div><!-- form-group -->
+            <button class="btn btn-az-primary btn-block">ACCEDER</button>
+          </form>
+        </div><!-- az-signin-header -->
+        <!-- az-signin-footer -->
+      </div><!-- az-card-signin -->
+    </div><!-- az-signin-wrapper -->
+
+   <script src="{%static 'core/lib/jquery/jquery.min.js'%}"></script>
+    <script src="{%static 'core/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{%static 'core/lib/ionicons/ionicons.js'%}"></script>
+    <script src="{% static 'core/vendor/jquery-confirm/jquery-confirm.min.css' %}"></script>
+
+
+ <script src="{%static 'core/js/azia.js'%}"></script>
+    <script>
+      $(function(){
+        'use strict'
+
+      });
+    </script>
+{%block page_js%}
+<script>
+  {% if form.errors%}
+                {% for field in form %}
+                  {% if field.errors %}
+                      {% for error in field.errors %}
+                      mensaje('{{error|escape }}','red');
+                      {%endfor%}
+
+                  {%endif%}
+
+              {%endfor%}
+            
+
+              {% if form.non_field_errors %}
+               
+                      {% for error in form.non_field_errors %}
+                      mensaje('{{error|escape }}','red');
+                      {%endfor%}
+
+                  {%endif%}
+
+              
+              {%endif%}  
+
+</script>
+
+{%endblock%}
+
+  </body>
+</html>

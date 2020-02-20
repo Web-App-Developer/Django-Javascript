@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+
+{%block content%}
+  <!-- Dropdown Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Listado de Puntos de Ventas</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Acciones</div>
+                      <a class="dropdown-item" href="{%url 'core:pv_new'%}"><i class="far fa-calendar-plus"></i>Nuevo PuntoVentas</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  {%if not obj%}
+                   <div class="alert alert-info">No Hay Puntos de Ventas Creados</div>
+                  {%endif%}
+                  <table class="table table-striped table-hover">
+                  	<thead>
+                  		<th>ID</th>
+                  		<th>NOMBRE PUNTO VENTA</th>
+                  		<th>ESTADO</th>
+                  		<th>USUARIO ASIGNADO</th>
+                  		<th>LOCALIDAD</th>
+                  		<th class="all">ACCIONES</th>
+                  	</thead>
+                  	<tbody>
+                  		<tr>
+                  		{%for item in obj%}
+                  		<td>{{ item.id_pv }}</td>
+                  		<td>{{item.nombre_pv}}</td>
+                  		<td>{{ item.estado_pv }}</td>
+                  		<td>{{item.user}}</td>
+                  		<td>{{item.localidad}}</td>
+                  		<td>
+                  			<a href="#" class="btn btn-warning btn-circle " role="button"><i class="far fa-edit"></i></a>
+                  			<a href="#" class="btn  btn-danger btn-circle " role="button"><i class="far fa-trash-alt"></i></a>
+                  		</td>
+                  		</tr>
+                  		{%endfor%}
+                  	</tbody>
+                  </table>
+                </div>
+              </div>
+{%endblock%}
+
+
+{%block page_js %}
+
+{%endblock%}

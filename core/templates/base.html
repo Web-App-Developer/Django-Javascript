@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {%load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Panel Administracion DobleMachuka</title>
+
+    <!-- vendor css -->
+    <link href="{%static 'core/lib/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{%static 'core/lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+    <link href="{% static 'core/lib/typicons.font/typicons.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="{%static 'core/css/azia.css'%}">
+    <link rel="stylesheet" href="{% static 'core/vendor/datatables/dataTables.bootstrap4.min.css' %}">
+
+    <!-- JQuery Confirm-->
+    <link rel="stylesheet" href="{% static 'core/vendor/jquery-confirm/jquery-confirm.min.css' %}">
+
+
+</head>
+
+
+<body class="az-body az-body-sidebar">
+
+    <div class="az-sidebar">
+        <div class="az-sidebar-header">
+            <a href="/" class="az-logo">doble<span>machuka</span></a>
+        </div>
+        <!-- az-sidebar-header -->
+        <div class="az-sidebar-loggedin">
+            <div class="az-img-user online"><img src="https://via.placeholder.com/500x500" alt=""></div>
+            <div class="media-body">
+                <h6>{{user.first_name}} {{user.last_name}}</h6>
+                <span>Administrador</span>
+            </div>
+            <!-- media-body -->
+        </div>
+        <!-- az-sidebar-loggedin -->
+        <div class="az-sidebar-body">
+            <ul class="nav">
+                <li class="nav-label">Administracion</li>
+                <li class="nav-item">
+                    <a href="allpv" class="nav-link"><i class="typcn typcn-device-desktop"></i>Punto de Ventas</a>
+                    
+                </li>
+                <li class="nav-item">
+                    <a href="/cajerosall" class="nav-link"><i class="typcn typcn-user"></i>Cajeros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/terminalesall" class="nav-link"><i class="typcn typcn-device-tablet"></i>Terminales</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="" class="nav-link"><i class="typcn typcn-group"></i>Usuarios &amp; Permisos</a>
+                    
+                    </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link with-sub"><i class="typcn typcn-chart-bar"></i>Reportes</a>
+                    <nav class="nav-sub">
+                        <a href="#" class="nav-sub-link">Reporte por Fecha</a>
+                        <a href="#" class="nav-sub-link">Reporte por Punto de venta</a>
+                        <a href="#" class="nav-sub-link">Reporte por Cajeros</a>
+
+                    </nav>
+                </li>
+                <!-- nav-item -->
+            </ul>
+            <!-- nav -->
+        </div>
+        <!-- az-sidebar-body -->
+    </div>
+    <!-- az-sidebar -->
+    <div class="modal fade effect-flip-vertical" id="popup"></div>
+    <div class="az-content az-content-dashboard-two">
+        <div class="az-header">
+            <div class="container-fluid">
+                <div class="az-header-left">
+                    <a href="" id="azSidebarToggle" class="az-header-menu-icon"><span></span></a>
+                </div>
+                <!-- az-header-left -->
+                <div class="az-header-center">
+                    <input type="search" class="form-control" placeholder="Search for anything...">
+                    <button class="btn"><i class="fas fa-search"></i></button>
+                </div>
+                <!-- az-header-center -->
+                <div class="az-header-right">
+                    <div class="az-header-message">
+                        <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
+                    </div>
+                    <!-- az-header-message -->
+                    <div class="dropdown az-header-notification">
+                        <a href="" class="new"><i class="typcn typcn-bell"></i></a>
+                        <div class="dropdown-menu">
+                            <div class="az-dropdown-header mg-b-20 d-sm-none">
+                                <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                            </div>
+                            <h6 class="az-notification-title">Notifications</h6>
+                            <p class="az-notification-text">You have 2 unread notification</p>
+                            <div class="az-notification-list">
+                                <div class="media new">
+                                    <div class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
+                                        <span>Mar 15 12:32pm</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                                <div class="media new">
+                                    <div class="az-img-user online"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p><strong>Joyce Chua</strong> just created a new blog post</p>
+                                        <span>Mar 13 04:16am</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                                <div class="media">
+                                    <div class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p><strong>Althea Cabardo</strong> just created a new blog post</p>
+                                        <span>Mar 13 02:56am</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                                <div class="media">
+                                    <div class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></div>
+                                    <div class="media-body">
+                                        <p><strong>Adrian Monino</strong> added new comment on your photo</p>
+                                        <span>Mar 12 10:40pm</span>
+                                    </div>
+                                    <!-- media-body -->
+                                </div>
+                                <!-- media -->
+                            </div>
+                            <!-- az-notification-list -->
+                            <div class="dropdown-footer"><a href="">View All Notifications</a></div>
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                    <!-- az-header-notification -->
+                    <div class="dropdown az-profile-menu">
+                        <a href="" class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></a>
+                        <div class="dropdown-menu">
+                            <div class="az-dropdown-header d-sm-none">
+                                <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                            </div>
+                            <div class="az-header-profile">
+                                <div class="az-img-user">
+                                    <img src="https://via.placeholder.com/500x500" alt="">
+                                </div>
+                                <!-- az-img-user -->
+                                <h6>{{user.first_name}} {{user.last_name}}</h6>
+                                <span>Administrador</span>
+                            </div>
+                            <!-- az-header-profile -->
+
+                            <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i>Mi Perfil</a>
+                            <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i>Editar Perfil</a>
+                            <a href="" class="dropdown-item"><i class="typcn typcn-time"></i>Log</a>
+                            <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Configuracion Cuenta</a>
+                            <a href="{% url 'core:logout'%}" class="dropdown-item"><i class="typcn typcn-power-outline"></i>Salir </a>
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                </div>
+                <!-- az-header-right -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- az-header -->
+
+
+
+        <div class="az-content-header d-block d-md-flex">
+            <div>
+                <!--<h2 class="az-content-title mg-b-5 mg-b-lg-8">Hi, welcome back!</h2> --->
+                <p class="mg-b-0">Panel de Administracion DobleMachuka.</p>
+            </div>
+
+        </div>
+        <!-- az-content-header -->
+        {%block content %} {% endblock %}
+
+        <div class="az-footer">
+            <div class="container-fluid">
+                <span>&copy; Doble Machuka 2020</span>
+                <span>Designed by: Pablo Polanco</span>
+            </div>
+            <!-- container -->
+        </div>
+        <!-- az-footer -->
+    </div>
+    <!-- az-content -->
+
+
+
+    <script src="{%static 'core/lib/jquery/jquery.min.js'%}"></script>
+    <script src="{%static 'core/lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{%static 'core/lib/ionicons/ionicons.js'%}"></script>
+
+    <script src="{%static 'core/lib/jquery-sparkline/jquery.sparkline.min.js'%}"></script>
+    <script src="{%static 'core/lib/raphael/raphael.min.js'%}"></script>
+    <script src="{%static 'core/lib/morris.js/morris.min.js'%}"></script>
+    <script src="{%static 'core/lib/jqvmap/jquery.vmap.min.js'%}"></script>
+    <script src="{%static 'core/lib/jqvmap/maps/jquery.vmap.usa.js'%}"></script>
+
+    <script src="{%static 'core/js/azia.js'%}"></script>
+     <!-- Page level plugins -->
+    <script src="{% static 'core/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'core/vendor/datatables/dataTables.bootstrap4.min.js'%}"></script>
+    <script src="{% static 'core/vendor/jquery-confirm/jquery-confirm.min.js' %}"></script>
+
+
+
+
+         
+        <script>
+            $(function() {
+                'use strict'
+
+                $('.az-sidebar .with-sub').on('click', function(e) {
+                    e.preventDefault();
+                    $(this).parent().toggleClass('show');
+                    $(this).parent().siblings().removeClass('show');
+                })
+
+                $(document).on('click touchstart', function(e) {
+                    e.stopPropagation();
+
+                    // closing of sidebar menu when clicking outside of it
+                    if (!$(e.target).closest('.az-header-menu-icon').length) {
+                        var sidebarTarg = $(e.target).closest('.az-sidebar').length;
+                        if (!sidebarTarg) {
+                            $('body').removeClass('az-sidebar-show');
+                        }
+                    }
+                });
+
+
+                $('#azSidebarToggle').on('click', function(e) {
+                    e.preventDefault();
+
+                    if (window.matchMedia('(min-width: 992px)').matches) {
+                        $('body').toggleClass('az-sidebar-hide');
+                    } else {
+                        $('body').toggleClass('az-sidebar-show');
+                    }
+                })
+            });
+
+            // Data table funtion  
+
+            $(document).ready(function(){
+                $('.table').DataTable();
+            });
+
+            
+
+        </script>
+
+    <script>
+        function abrir_modal(url)
+        {
+
+            $("#popup").load(url, function(){
+                $(this).modal({
+                    backdrop:'static',
+                    keyboard: false
+                })
+                $(this).modal('show');
+            });
+            return false;
+        }
+
+        function cerrar_modal()
+        {
+            $('#popup').modal('hide');
+            return false;
+        }
+
+        function mensaje(msg,color='indigo'){
+            $.alert({
+                title:'',
+                theme:'material',
+                type:color,
+                content:msg
+            });
+        }
+
+    </script>
+{%block page_js%}{%endblock%}
+{% block customScript %}
+
+{% endblock %}
+</body>
+
+</html>

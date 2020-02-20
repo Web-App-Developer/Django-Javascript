@@ -1,0 +1,87 @@
+{%extends 'base.html'%}
+
+{% load crispy_forms_tags 
+
+{% block content %}
+<<div class="row">
+<div class="col-md-12">
+<button class="btn-primary" style="
+    float: right;
+"><i id="btnCreate" class="fas fa-plus-circle" style="font-size: 36px; padding: 5px 0;" data-toggle="modal" data-target="#agregarUsuario"></i></button>
+    </div></div>
+<!--<button class="btn btn-primary show-form" data-url="{% url 'usuarios_view' %}">
+	<span class="fas fa-plus-circle">Agregar</span>
+</button>-->
+<div class="modal fade" id="modalUsuarios">
+	<div class="modal-dialog">
+		<div class="modal-content"></div>
+	</div>
+</div>
+<table class="table table-bordered" id="mytable">
+	<thead>
+		<tr>
+			<td>Id Usuario</td>
+			<td>Nombre Usuario</td>
+			<td>Estado Usuario</td>
+			<td>IP Usuario</td>
+			<td>Acciones</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for usuarios in object_list %}
+		<tr>
+			<td>{{ usuarios.id_usuarios }}</td>
+			<td>{{ usuarios.nombre_usuarios }}</td>
+			<td>{{ usuarios.estado_usuarios }}</td>
+			<td>{{ usuarios.ip_usuarios }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'usuarios_update' usuarios.id_usuarios %} "><i class="fas fa-edit"></i></a>
+				<a class="btn btn-danger" href="{% url 'usuarios_delete' usuarios.id_usuarios %} "><i class="fas fa-trash-alt"></i></a>
+
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay Usuarios Registrados</h1>
+
+		{% endif %}
+
+
+	</tbody>
+</table>
+
+<!--<div class="modal fade" id="agregarUsuarios">
+	<div class="modal-dialog">
+		<div class="modal-content"></div>
+	</div>
+</div>-->
+
+<div class="modal fade" id="agregarUsuario">
+<form method="post" >
+	{% csrf_token %}
+	<div class="modal-dialog modal-dialog-center">
+	<div class="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title">Agregar Usuario</h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div>
+
+			{{form|crispy}}
+				
+			</div>
+		</form>
+	<button class="btn btn-primary" href="{% url 'usuarios_list' %}" type="submit">Agregar</button>
+	<a class="btn btn-secondary" href="{% url 'usuarios_list' %}">Cancelar</a>
+	
+
+</form>
+</div></div></div>
+{% endblock %}
+
+

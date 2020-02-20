@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0cbc7f01-9535-4cf8-bd9f-e410f80970b6" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>PuntoVenta</find>
+      <find>PosPc</find>
+      <find>Cajero</find>
+      <find>PDVS</find>
+      <find>DateField</find>
+      <find>PDV(s)</find>
+      <find>DEBUG = True</find>
+      <find>obj.0</find>
+      <find>CartonKeno</find>
+      <find>fecha_keno</find>
+      <find>#selec</find>
+      <find>inicial</find>
+      <find>db_column</find>
+      <find>b_column</find>
+      <find>csrf_token</find>
+      <find>ajax_reportes</find>
+      <find>id_cajero__id_pos_pc__id_pv__localidad</find>
+      <find>fecha_cartas__gte</find>
+      <find>id_cajero__id_pos_pc__id_pv__nombre_pv</find>
+      <find>selecclonar</find>
+    </findStrings>
+    <dirStrings>
+      <dir>F:\applications\django+js\doble_machuka-master</dir>
+    </dirStrings>
+  </component>
+  <component name="ProjectId" id="1XbbDpqEwU7LPfoHYOXF0fOhSqT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../geturl" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="doble_machuka-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="doble_machuka-master" type="Python.DjangoServer" factoryName="Django server" activateToolWindowBeforeRun="false">
+      <module name="doble_machuka-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="doble_machuka.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="doble_machuka-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0cbc7f01-9535-4cf8-bd9f-e410f80970b6" name="Default" comment="" />
+      <created>1581178947050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581178947050</updated>
+      <workItem from="1581317631690" duration="741000" />
+      <workItem from="1581318394119" duration="8147000" />
+      <workItem from="1581326706174" duration="11420000" />
+      <workItem from="1581402158962" duration="6780000" />
+      <workItem from="1581486455334" duration="1546000" />
+      <workItem from="1581488170134" duration="2229000" />
+      <workItem from="1581490939655" duration="257000" />
+      <workItem from="1581491238971" duration="3946000" />
+      <workItem from="1581579524317" duration="2122000" />
+      <workItem from="1581585173799" duration="982000" />
+      <workItem from="1581792989012" duration="564000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581488789671">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581488789671" />
+    <state x="686" y="157" key="#doble_machuka-master" timestamp="1581489275250">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="686" y="157" key="#doble_machuka-master/0.0.1920.1040@0.0.1920.1040" timestamp="1581489275250" />
+    <state x="694" y="285" key="EnvironmentVariablesDialog" timestamp="1581488117104">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="694" y="285" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581488117104" />
+    <state x="865" y="410" key="FileChooserDialogImpl" timestamp="1581793552201">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="865" y="410" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581793552201" />
+    <state x="625" y="324" key="SettingsEditor" timestamp="1581585093591">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="324" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581585093591" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1581793320641">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581793320641" />
+    <state x="616" y="316" key="run.anything.popup" timestamp="1581492437005">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="316" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581492437005" />
+  </component>
+</project>
